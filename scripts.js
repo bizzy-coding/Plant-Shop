@@ -96,7 +96,7 @@ let plants = [
     console.log(plant.price)
 //now you can access each plant and each of it's properties
     var prodCard = document.createElement('div');
-    prodCard.classList.add('.product--card');
+    prodCard.classList.add('product--card');
     prodCont.appendChild(prodCard);
 //for each of the products, a card has been created, but this is just empty until you fill it
     prodCard.innerHTML = `
