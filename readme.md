@@ -11,10 +11,10 @@ Featuring:
 
 ## Next steps
 
-[x] Create product object
-[x] Basic Styling
-[x] Display products 
-[x] Sorting functionality
+- [x] Create product object
+- [x] Basic Styling
+- [x] Display products 
+- [x] Sorting functionality
 
 ## Functionality utilised
 
