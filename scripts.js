@@ -85,6 +85,8 @@ let plants = [
   
   ];
 
+  const originalPlants = [...plants];
+
   const prodCont = document.querySelector('.product--container');
 
   //what am I trying to acheive here?
@@ -92,21 +94,51 @@ let plants = [
   //loop through the object and create a new products
   //each product should be a product card within the prod container 
 
-  plants.forEach((plant) => {
-    console.log(plant.price)
-//now you can access each plant and each of it's properties
-    var prodCard = document.createElement('div');
-    prodCard.classList.add('product--card');
-    prodCont.appendChild(prodCard);
-//for each of the products, a card has been created, but this is just empty until you fill it
-    prodCard.innerHTML = `
-    <h3>${plant.name}</h3>
-    <div class="product--image">
-    <img src=${plant.imageURL} />
-    <div class="product--stock">${plant.inStock ? "FREE <br>DELIVERY" : "SOLD OUT"}
-    </div>
-    <p>${plant.description}</p>
-    <p>${plant.price}</p>
-    `
+  function createProdCards() {
 
-  });
+    originalPlants.forEach((plant) => {
+        console.log(plant.price)
+    //now you can access each plant and each of it's properties
+        var prodCard = document.createElement('div');
+        prodCard.classList.add('product--card');
+        prodCont.appendChild(prodCard);
+    //for each of the products, a card has been created, but this is just empty until you fill it
+        prodCard.innerHTML = `
+        <h3>${plant.name}</h3>
+        <div class="product--image">
+        <img src=${plant.imageURL}/>
+        <div class="product--stock">${plant.inStock ? "FREE <br>DELIVERY" : "SOLD OUT"}
+        </div>
+        <p>${plant.description}</p>
+        <p>${plant.price}</p>
+        `
+      });
+
+  }
+
+  createProdCards();
+
+
+  //A-Z SORTING FUNCTIONALITY
+
+  const sortButtonAZ = document.querySelector('.sort--button--AZ')
+  sortButtonAZ.addEventListener('click' , sortPlantsAZ);
+
+  function sortPlantsAZ() {
+      // Sort the originalPlants array alphabetically
+  originalPlants.sort((a, b) => a.name.localeCompare(b.name));
+
+  // Clear the existing product cards
+  prodCont.innerHTML = '';
+  createProdCards();
+  }
+
+  //PRICE SORTING FUNCTIONALITY 
+
+  
+
+
+
+
+
+  
