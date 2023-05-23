@@ -14,7 +14,7 @@ let plants = [
         "Brighten up your space with this stunning golden pothos plant. Its cascading leaves will add a pop of green to any room, and its low maintenance nature makes it the perfect choice for busy households.",
       price: 14.99,
       imageURL:
-        "https://www.ikea.com/gb/en/images/products/epipremnum-potted-plant-golden-pothos__0900460_pe668029_s5.jpg?f=xxxs",
+        "https://www.ikea.com/gb/en/images/products/epipremnum-potted-plant-golden-pothos__0945915_pe797829_s5.jpg?f=xs",
       inStock: true
     },
     {
@@ -135,7 +135,23 @@ let plants = [
 
   //PRICE SORTING FUNCTIONALITY 
 
-  
+  const sortButtonHighLow = document.querySelector('.sort--button--high--low');
+  sortButtonHighLow.addEventListener('click' , sortPlantsHighLow);
+
+  function sortPlantsHighLow() {
+    originalPlants.sort((a,b) => b.price - a.price);
+    prodCont.innerHTML = '';
+    createProdCards();
+  }
+
+  const sortButtonLowHigh = document.querySelector('.sort--button--low--high');
+sortButtonLowHigh.addEventListener('click', sortPlantsLowHigh);
+
+function sortPlantsLowHigh() {
+  originalPlants.sort((a, b) => a.price - b.price);
+  prodCont.innerHTML = '';
+  createProdCards();
+}
 
 
 
